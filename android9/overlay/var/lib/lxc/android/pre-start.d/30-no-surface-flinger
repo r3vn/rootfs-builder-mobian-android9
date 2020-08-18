@@ -1,0 +1,14 @@
+#!/bin/sh
+
+sed -i $LXC_ROOTFS_PATH/init.rc \
+    -e '/^service surfaceflinger/{s/$/\n    disabled/}' \
+    -e '/onrestart restart surfaceflinger$/d' \
+    -e  's|\(/system/bin/ubuntuappmanager\)|\1.disabled|'
+cat <<EOF >> $LXC_ROOTFS_PATH/init.rc
+
+on property:sys.runsf=0
+    stop surfaceflinger
+
+on property:sys.runsf=1
+    start surfaceflinger
+EOF

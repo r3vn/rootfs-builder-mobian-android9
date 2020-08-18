@@ -1,0 +1,32 @@
+{{- $architecture := or .architecture "arm64" -}}
+{{- $image := or .image (printf "mobian-android9-%s.tar.gz" $architecture) -}}
+{{- $output_type := "tarball" -}}
+
+architecture: {{ $architecture }}
+actions:
+
+  - action: recipe
+    description: create rootfs
+    recipe: hybris-mobian.yaml
+    variables:
+      architecture: {{ $architecture }}
+      image: {{ $image }}
+      output_type: {{ $output_type }}
+
+  - action: overlay
+    source: devices/fxtec-pro1/overlay
+    description: Adding fxtec pro1 port overlay
+    destination: /
+
+  - action: recipe
+    description: Polish the image
+    recipe: polish.yaml
+    variables:
+      architecture: {{ $architecture }}
+      image: {{ $image }}
+      output_type: {{ $output_type }}
+
+  - action: pack
+    description: Compressing image
+    file: {{ $image }}
+    compression: gz

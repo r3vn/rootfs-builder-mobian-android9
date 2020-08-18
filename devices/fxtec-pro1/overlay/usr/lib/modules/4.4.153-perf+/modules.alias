@@ -1,0 +1,4 @@
+# Aliases extracted from modules themselves.
+alias nfs-layouttype4-4 nfs_layout_flexfiles
+alias pci:v00001AE9d00000302sv*sd*bc*sc*i* wil6210
+alias pci:v00001AE9d00000310sv*sd*bc*sc*i* wil6210

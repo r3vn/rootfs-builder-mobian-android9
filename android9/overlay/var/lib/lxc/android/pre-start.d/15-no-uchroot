@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Make sure the ubuntu_chroot init service does not get started
+sed -i '/ubuntu_chroot init$/,+2d' $LXC_ROOTFS_PATH/init.rc

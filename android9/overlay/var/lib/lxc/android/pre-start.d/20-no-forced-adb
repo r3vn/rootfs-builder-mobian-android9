@@ -1,0 +1,4 @@
+#!/bin/sh
+
+sed -i '/# adb force hack.*/,+3d' $LXC_ROOTFS_PATH/init.rc
+sed -e "s/gid=2000/gid=32011/" -e "s/uid=2000/uid=32011/" -i $LXC_ROOTFS_PATH/init.manta.usb.rc || true

@@ -1,0 +1,10 @@
+kernel/fs/nfs/flexfilelayout/nfs_layout_flexfiles.ko
+kernel/block/test-iosched.ko
+kernel/drivers/char/rdbg.ko
+kernel/drivers/scsi/ufs/ufs_test.ko
+kernel/drivers/net/wireless/ath/wil6210/wil6210.ko
+kernel/drivers/media/platform/msm/broadcast/tspp.ko
+kernel/drivers/media/platform/msm/dvb/adapter/mpq-adapter.ko
+kernel/drivers/media/platform/msm/dvb/demux/mpq-dmx-hw-plugin.ko
+kernel/drivers/platform/msm/msm_11ad/msm_11ad_proxy.ko
+kernel/net/bridge/br_netfilter.ko

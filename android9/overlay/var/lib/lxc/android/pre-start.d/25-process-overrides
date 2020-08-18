@@ -1,0 +1,3 @@
+#!/bin/sh
+
+cp -a /var/lib/lxc/android/overrides/* $LXC_ROOTFS_PATH || true

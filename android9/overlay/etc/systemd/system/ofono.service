@@ -1,0 +1,13 @@
+[Unit]
+Description=oFono Mobile telephony stack
+Documentation=man:ofonod(8)
+Requires=dbus.service
+After=dbus.service
+
+[Service]
+Restart=on-failure
+BusName=org.ofono
+ExecStart=/usr/sbin/ofonod -P provision,udev*,dun*,smart*,hfp_bluez5,stktest,sap --nodetach
+
+[Install]
+WantedBy=multi-user.target

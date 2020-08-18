@@ -1,0 +1,12 @@
+test-iosched.ko:
+mpq-adapter.ko:
+msm_11ad_proxy.ko:
+ufs_test.ko: test-iosched.ko
+rdbg.ko:
+br_netfilter.ko:
+nfs_layout_flexfiles.ko:
+wil6210.ko: msm_11ad_proxy.ko
+qca_cld3_wlan.ko:
+tspp.ko:
+wlan.ko:
+mpq-dmx-hw-plugin.ko: tspp.ko mpq-adapter.ko

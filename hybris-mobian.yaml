@@ -1,0 +1,69 @@
+{{- $architecture := or .architecture "arm64" -}}
+{{- $image := or .image (printf "mobian-android9-%s.tar.gz" $architecture) -}}
+{{- $suite := "bullseye" -}}
+{{- $output_type := "tarball" -}}
+
+architecture: {{ $architecture }}
+actions:
+
+  - action: run
+    description: fix debos's DNS
+    script: /bin/ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
+
+  - action: debootstrap
+    suite: {{ $suite }}
+    components:
+      - main
+    mirror: https://deb.debian.org/debian
+    variant: minbase
+
+  - action: overlay
+    source: mobian/overlay
+    description: Adding mobian overlay
+    destination: /
+
+  - action: run
+    chroot: true
+    description: update apt
+    command: apt update
+
+  - action: apt
+    chroot: true
+    description: install packages
+    packages:
+      - mobian-phosh-phone
+      - lxc
+      - udev
+      - isc-dhcp-server
+      - openssh-server
+      - strace
+      - htop
+      - net-tools
+      - wlr-randr
+      - rsyslog
+      - libhybris
+      - hybris-usb
+      - ofono
+      - ofono-ril-binder-plugin
+
+  - action: overlay
+    source: android9/overlay
+    description: Adding Android 9 base specific overlay
+    destination: /
+
+  - action: run
+    chroot: true
+    description: setup halium
+    script: scripts/setup_halium.sh
+
+  - action: overlay
+    source: hacks/overlay
+    description: adding hacks overlay
+    destination: /
+
+  - action: run
+    chroot: true
+    description: enable services
+    script: scripts/enable_services.sh
+
+

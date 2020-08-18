@@ -1,0 +1,10 @@
+[Unit]
+Description=Remount / rw
+DefaultDependencies=no
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/mount-android.sh
+
+[Install]
+WantedBy=sysinit.target
