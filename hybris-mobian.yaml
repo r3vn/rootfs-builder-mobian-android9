@@ -32,7 +32,7 @@ actions:
     description: install packages
     packages:
       - mobian-phosh-phone
-      - lxc
+      - lxc-android
       - udev
       - isc-dhcp-server
       - openssh-server

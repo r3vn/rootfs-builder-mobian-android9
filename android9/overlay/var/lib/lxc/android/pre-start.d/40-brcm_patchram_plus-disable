@@ -1,4 +1,0 @@
-#!/bin/sh
-
-sed -i $LXC_ROOTFS_PATH/init.*.rc \
-        -e 's|\(/system/bin/brcm_patchram_plus\)|\1.disabled|'

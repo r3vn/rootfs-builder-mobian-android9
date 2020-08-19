@@ -1,5 +1,0 @@
-#! /bin/sh
-
-mkfifo -m 0660 /dev/socket/micshm || true
-chown 1013 /dev/socket/micshm || true
-chgrp android_media /dev/socket/micshm || true

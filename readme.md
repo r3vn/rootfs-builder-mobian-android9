@@ -4,6 +4,7 @@ This uses debos to build (sdcard) images for devices
 
 
 Supported devices:
+ - android9 generic
  - f(x)tec pro1
 
 
