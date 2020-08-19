@@ -69,7 +69,7 @@ For easy access from any directory:
 ln -s $(readlink -f run.sh) ~/bin/debos-docker
 debos-docker DEBOS_PARAMETERS
 
-git clone https://gitlab.com/r3vn/rootfs-builder-mobian-android9.git
+git clone https://github.com/hybris-mobian/rootfs-builder-debos.git
 cd rootfs-builder-debos
 debos-docker -m 5G <device>.yaml
 For raspberry pi this means 
