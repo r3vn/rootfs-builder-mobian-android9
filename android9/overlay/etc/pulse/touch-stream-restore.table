@@ -1,0 +1,4 @@
+sink-input-by-media-role:multimedia -8
+sink-input-by-media-role:alert -8
+sink-input-by-media-role:alarm -8
+sink-input-by-media-role:phone -15
