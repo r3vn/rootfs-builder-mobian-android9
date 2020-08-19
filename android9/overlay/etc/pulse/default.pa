@@ -22,7 +22,7 @@
 # This script is specific to Ubuntu Touch
 # Needed to avoid conflicting policies with desktop
 
-.fail
+#.fail
 
 ### Automatically restore the volume of streams
 load-module module-stream-restore restore_device=false restore_muted=false fallback_table=/etc/pulse/touch-stream-restore.table
@@ -38,12 +38,12 @@ load-module module-switch-on-port-available
 load-module module-switch-on-connect skip_abstract=yes
 
 ### Automatically load the Pulseaudio Droid
-.ifexists module-droid-card-28.so
-load-module module-droid-card-28 rate=48000 voice_virtual_stream=true
+.ifexists module-droid-card.so
+load-module module-droid-card rate=48000 voice_virtual_stream=true
 .endif
 
-.ifexists module-droid-hidl-28.so
-load-module module-droid-hidl-28
+.ifexists module-droid-hidl.so
+load-module module-droid-hidl
 .endif
 
 ### Automatically load the trust-store module
@@ -67,14 +67,16 @@ load-module module-jackdbus-detect channels=2
 .fail
 .endif
 
+# DISABLED MOBIAN HERE
 ### Automatically load driver modules for Bluetooth hardware
-.ifexists module-bluetooth-policy.so
-load-module module-bluetooth-policy
-.endif
+#.ifexists module-bluetooth-policy.so
+#load-module module-bluetooth-policy
+#.endif
 
-.ifexists module-bluez5-discover.so
-load-module module-bluez5-discover headset=both profile=a2dp_sink sco_sink=sink.fake.sco sco_source=source.fake.sco
-.endif
+#.ifexists module-bluez5-discover.so
+#load-module module-bluez5-discover headset=both profile=a2dp_sink sco_sink=sink.fake.sco sco_source=source.fake.sco
+#.endif
+# END HERE
 
 ### Load several protocols
 .ifexists module-esound-protocol-unix.so

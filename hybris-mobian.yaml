@@ -44,7 +44,9 @@ actions:
       - libhybris
       - hybris-usb
       - ofono
+      - ofono-scripts
       - ofono-ril-binder-plugin
+      - pulseaudio-module-droid
 
   - action: overlay
     source: android9/overlay
