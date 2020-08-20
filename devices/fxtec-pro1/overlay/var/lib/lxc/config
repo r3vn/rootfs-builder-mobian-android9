@@ -1,0 +1,29 @@
+lxc.rootfs.path = /var/lib/lxc/android/rootfs
+lxc.uts.name = armhf
+
+lxc.net.0.type = none
+
+lxc.tty.dir = lxc
+lxc.tty.max  = 4
+lxc.pty.max = 1024
+lxc.arch = armhf
+lxc.cap.drop = mac_admin mac_override
+
+lxc.hook.pre-start = /var/lib/lxc/android/pre-start.sh
+
+lxc.init.cmd = /init
+
+lxc.apparmor.profile = unconfined
+lxc.autodev = 0
+
+lxc.mount.entry = tmpfs dev tmpfs nosuid 0 0
+lxc.mount.entry = /dev/__properties__ dev/__properties__ bind bind,create=dir 0 0
+lxc.mount.entry = /dev/socket dev/socket bind bind,create=dir 0 0
+lxc.mount.entry = proc proc proc nodev,noexec,nosuid 0 0
+lxc.mount.entry = sys sys sysfs nodev,noexec,nosuid 0 0
+#lxc.mount.entry = tmp tmp tmpfs nodev,noexec,nosuid 0 0
+lxc.mount.entry = /android/data data bind bind 0 0
+lxc.mount.entry = /vendor vendor bind rbind 0 0
+lxc.mount.entry = /mnt mnt bind rbind 0 0
+#lxc.mount.entry = /android/efs efs bind bind 0 0
+

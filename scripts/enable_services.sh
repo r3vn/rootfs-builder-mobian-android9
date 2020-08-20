@@ -13,6 +13,10 @@ echo $HOSTNAME > /etc/hostname
         echo 'ff02::2	ip6-allrouters'
 } > /etc/hosts
 
+# Generate locales (only en_US.UTF-8 for now)
+sed -i -e '/en_US\.UTF-8/s/^# //g' /etc/locale.gen
+locale-gen
+
 # enable ssh root login
 echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 
@@ -22,7 +26,7 @@ chmod +x /usr/bin/phosh
 # enable services
 systemctl enable mount-android
 systemctl enable remount-root-rw
-systemctl enable lxc@android
+systemctl enable lxc-android
 systemctl enable usb-tethering
 systemctl enable ssh
 systemctl enable ofono

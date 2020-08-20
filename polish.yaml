@@ -6,9 +6,9 @@
 architecture: {{ $architecture }}
 actions:
   - action: run
-    description: Remove apt caches to save space
+    descrption: Remove apt packages which are no longer unnecessary and delete downloaded packages
     chroot: true
-    command: rm -r /var/cache/apt/*
+    command: apt -y autoremove --purge && apt clean
 
 {{ if eq $output_type "image" }}
   - action: run

@@ -7,7 +7,7 @@ Keywords=Telephone;Call;Phone;Dial;Dialer;PTSN;
 # Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 Icon=sm.puri.Calls
 TryExec=calls
-Exec=calls -p fono --daemon
+Exec=calls -p ofono --daemon
 Type=Application
 StartupNotify=true
 NoDisplay=true

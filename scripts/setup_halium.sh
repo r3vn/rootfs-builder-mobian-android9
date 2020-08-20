@@ -30,11 +30,16 @@ adduser --disabled-password --gecos "" mobian
 useradd radio -g radio
 useradd system -g system
 
-
 # add mobian and _apt on android groups
-usermod -a -G video,system,radio,android_graphics,android_input,android_audio,android_net_bt_admin,android_net_bt,android_inet,android_inet_raw,android_inet_admin mobian
+usermod -a -G render,plugdev,video,system,radio,android_graphics,android_input,android_audio,android_net_bt_admin,android_net_bt,android_inet,android_inet_raw,android_inet_admin mobian
 usermod -g 3003 _apt
 usermod -g 3003 _chrony
+
+# set default pass to 1234, change it
+echo "mobian:1234" | chpasswd
+
+# add mobian user to sudo
+adduser mobian sudo
 
 # halium firmware loader conflicts with ueventd one
 if [ -f "/usr/lib/udev/rules.d/50-firmware.rules" ]; then

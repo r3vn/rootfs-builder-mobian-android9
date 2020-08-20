@@ -1,0 +1,13 @@
+[Unit]
+Description=START ANDROID LXC
+DefaultDependencies=no
+Requires=mount-android.service
+After=mount-android.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/lxc-start -n android
+
+[Install]
+WantedBy=sysinit.target
+
