@@ -1,2 +1,0 @@
-# Override PulseAudio config for Halium 9
-env PULSE_SCRIPT=/etc/pulse/touch-android9.pa

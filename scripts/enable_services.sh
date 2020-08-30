@@ -31,4 +31,5 @@ systemctl enable usb-tethering
 systemctl enable ssh
 systemctl enable ofono
 systemctl enable phosh
+systemctl enable bluebinder
 systemctl disable rsyslog

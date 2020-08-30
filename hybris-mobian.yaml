@@ -35,19 +35,19 @@ actions:
       - mobian-phosh-phone
       - lxc-android
       - udev
-      - isc-dhcp-server
       - openssh-server
       - strace
-      - htop
       - net-tools
       - wlr-randr
       - rsyslog
       - libhybris
+      - libhybris-test
       - hybris-usb
       - ofono
       - ofono-scripts
       - ofono-ril-binder-plugin
       - pulseaudio-module-droid
+      - bluebinder
 
   - action: overlay
     source: android9/overlay
