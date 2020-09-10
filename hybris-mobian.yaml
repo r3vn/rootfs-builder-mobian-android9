@@ -39,7 +39,6 @@ actions:
       - strace
       - net-tools
       - wlr-randr
-      - rsyslog
       - libhybris
       - libhybris-test
       - hybris-usb
@@ -71,5 +70,5 @@ actions:
 
   - action: run
     chroot: true
-    description: disable mobian MTP
-    script: scripts/disable_mtp.sh
+    description: disable mobian MTP and fwupd
+    script: scripts/disable_services.sh
