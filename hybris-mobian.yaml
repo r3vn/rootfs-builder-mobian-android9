@@ -69,4 +69,7 @@ actions:
     description: enable services
     script: scripts/enable_services.sh
 
-
+  - action: run
+    chroot: true
+    description: disable mobian MTP
+    script: scripts/disable_mtp.sh

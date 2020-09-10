@@ -33,3 +33,4 @@ systemctl enable ofono
 systemctl enable phosh
 systemctl enable bluebinder
 systemctl disable rsyslog
+
