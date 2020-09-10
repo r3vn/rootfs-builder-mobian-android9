@@ -1,8 +1,5 @@
 #!/bin/bash
 
-mkdir -p /dev/cpuset
-mount none /dev/cpuset -t cpuset -o nodev,noexec,nosuid
-
 # On systems with A/B partition layout, current slot is provided via cmdline parameter.
 ab_slot_suffix=$(grep -o 'androidboot\.slot_suffix=..' /proc/cmdline |  cut -d "=" -f2)
 [ ! -z "$ab_slot_suffix" ] && echo "A/B slot system detected! Slot suffix is $ab_slot_suffix"
@@ -61,7 +58,7 @@ fi
 
 # Assume there's only one fstab in vendor
 fstab=$(ls /vendor/etc/fstab*)
-[ ! -e "$fstab" ] && echo "fstab not found" && exit
+[ -z "$fstab" ] && echo "fstab not found" && exit
 
 echo "checking fstab $fstab for additional mount points"
 
@@ -93,6 +90,3 @@ cat ${fstab} | while read line; do
     mount $path $2 -t $3 -o $(parse_mount_flags $4)
 done
 
-if [ -d /android/metadata ]; then
-       mount -o bind /android/metadata /var/lib/lxc/android/rootfs/metadata
-fi
